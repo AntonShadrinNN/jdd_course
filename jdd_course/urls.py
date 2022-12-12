@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from jdd_course.views import home
+from jdd_course.views import home, about
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home', home)
+    path('home/', home),
+    path('about/', about)
 ]
