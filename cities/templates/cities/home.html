@@ -7,10 +7,39 @@
 {% block content %}
     <h1>Список городов</h1>
     <div class="row">
-        <div class="col-md">
-            {% for object in objects_list %}
-            <p> {{ object.name }} </p>
-            {% endfor %}
+        <div class="col-md-8 mx-auto my-3 ">
+            <table class="table table-striped">
+                {% for object in object_list %}
+                    <tr>
+                        <td>
+                            <a href="{% url 'cities:detail_home' object.pk %}"> {{ object.name }} </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'cities:update_view' object.pk %}">
+                                <button type="button" class="btn btn-sm btn-outline-warning">Редактировать</button>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'cities:delete_view' object.pk %}">
+                                <button type="button" class="btn btn-sm btn-outline-danger">Удалить</button>
+                            </a>
+                        </td>
+                    </tr>
+                     
+                {% endfor %}
+            </table>
         </div>
     </div>
+
+
+    <style>
+        a {
+            text-decoration: none;
+            color: #18abab;
+        }
+        a:hover{
+            color: #10e5e5;
+            font-weight: 400;
+        }
+    </style>
 {% endblock %}

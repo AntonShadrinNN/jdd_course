@@ -20,6 +20,6 @@ from jdd_course.views import home, about
 urlpatterns = [
     path('cities/', include(('cities.urls', 'cities'))),
     path('admin/', admin.site.urls),
-    path('home/', home),
-    path('about/', about)
+    path('home/', home, name='home'),
+    path('about/', about),
 ]

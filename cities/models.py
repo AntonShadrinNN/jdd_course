@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class City(models.Model):
@@ -11,3 +12,7 @@ class City(models.Model):
         verbose_name = 'Город'
         verbose_name_plural = 'Города'
         ordering = ['name']
+
+    @staticmethod
+    def get_absolute_url():
+        return reverse('cities:home')

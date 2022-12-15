@@ -17,8 +17,12 @@ Including another URLconf
 from django.urls import path
 from cities.views import *
 
-
 urlpatterns = [
+    path('delete/<int:pk>/', CityDeleteView.as_view(), name='delete_view'),
     path('', home, name='home'),
-    path('<int:pk>/', home),
+    path('<int:pk>/', HomeDetailView.as_view(), name='detail_home'),
+    path('update/<int:pk>/', CityUpdateView.as_view(), name='update_view'),
+    path('create/', CityCreateView.as_view(), name='create_view'),
 ]
+
+
